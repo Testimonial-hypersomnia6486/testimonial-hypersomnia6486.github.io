@@ -258,6 +258,7 @@ main{ max-width: 980px; margin: 0 auto; padding: 0 20px 60px; }
   position: relative;
 }
 .role{ color: var(--cyan); font-size: 20px; margin: 0 0 20px; }
+.chapter-tag{ color: var(--amber); font-size: 14px; letter-spacing: .5px; margin: 0 0 6px; }
 .typewriter-static{ max-width: 68ch; color: var(--fg); }
 .hero-actions{ display:flex; gap: 14px; flex-wrap: wrap; margin-top: 22px; }
 

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kepa Cuevas Barrasa · Elige tu CV</title>
-<meta name="description" content="CV interactivo de Kepa Cuevas Barrasa. Elige edición: Matrix, Windows 98 o Minimalista.">
+<meta name="description" content="CV interactivo de Kepa Cuevas Barrasa contado en tres capítulos: Windows 98, Matrix e IA.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22><rect width=%2216%22 height=%2216%22 fill=%22%23111%22/><text x=%228%22 y=%2212%22 font-size=%2210%22 text-anchor=%22middle%22 fill=%22%23fff%22 font-family=%22monospace%22>K</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,12 +18,26 @@
 <main class="select-screen">
   <p class="eyebrow">KEPA CUEVAS BARRASA · SOFTWARE ENGINEER</p>
   <h1 class="select-title">ELIGE TU CV</h1>
-  <p class="select-sub">Mismo currículum, tres presentaciones. ¿Con cuál empezamos?</p>
+  <p class="select-sub">Un currículum, tres capítulos: así fue evolucionando mi relación con los ordenadores.</p>
 
   <div class="cards" role="listbox" aria-label="Ediciones del CV">
 
-    <a class="card card-matrix" href="matrix/" role="option" data-key="1">
+    <a class="card card-win98" href="win98/" role="option" data-key="1">
       <span class="card-index">01</span>
+      <div class="preview preview-win98" aria-hidden="true">
+        <div class="p-win">
+          <div class="p-titlebar"><span>CV.exe</span><span class="p-x">×</span></div>
+          <div class="p-body"><div class="p-icon"></div><div class="p-line"></div><div class="p-line short"></div></div>
+        </div>
+      </div>
+      <h2>WINDOWS 98</h2>
+      <p class="card-type">capítulo 01 · mi entrada al mundo de los ordenadores</p>
+      <p class="card-desc">Ventanas de verdad, Menú Inicio y un escritorio lleno de iconos. Así empezó todo.</p>
+      <span class="card-cta">&gt; SELECCIONAR</span>
+    </a>
+
+    <a class="card card-matrix" href="matrix/" role="option" data-key="2">
+      <span class="card-index">02</span>
       <div class="preview preview-matrix" aria-hidden="true">
         <div class="p-glyphs">
           <span>ﾊ</span><span>1</span><span>ｱ</span><span>0</span><span>ｳ</span><span>ｴ</span>
@@ -31,35 +45,23 @@
         </div>
         <div class="p-cursor">&gt; kepa@cv:~$ <span class="p-blink">_</span></div>
       </div>
-      <h2>EDICIÓN MATRIX</h2>
-      <p class="card-type">tipo: hacker · terminal</p>
+      <h2>MATRIX</h2>
+      <p class="card-type">capítulo 02 · cuando empecé a investigar más a fondo</p>
       <p class="card-desc">Lluvia de código, boot de sistema y una consola interactiva de verdad.</p>
       <span class="card-cta">&gt; SELECCIONAR</span>
     </a>
 
-    <a class="card card-win98" href="win98/" role="option" data-key="2">
-      <span class="card-index">02</span>
-      <div class="preview preview-win98" aria-hidden="true">
-        <div class="p-win">
-          <div class="p-titlebar"><span>CV.exe</span><span class="p-x">×</span></div>
-          <div class="p-body"><div class="p-icon"></div><div class="p-line"></div><div class="p-line short"></div></div>
+    <a class="card card-ia" href="ia/" role="option" data-key="3">
+      <span class="card-index">03</span>
+      <div class="preview preview-ia" aria-hidden="true">
+        <div class="p-chat">
+          <div class="p-bubble p-bubble-user">¿quién eres?</div>
+          <div class="p-bubble p-bubble-ai">Kepa Cuevas Barrasa —</div>
         </div>
       </div>
-      <h2>EDICIÓN WINDOWS 98</h2>
-      <p class="card-type">tipo: retro-OS · nostalgia</p>
-      <p class="card-desc">Ventanas de verdad, Menú Inicio y un escritorio lleno de iconos.</p>
-      <span class="card-cta">&gt; SELECCIONAR</span>
-    </a>
-
-    <a class="card card-minimal" href="minimal/" role="option" data-key="3">
-      <span class="card-index">03</span>
-      <div class="preview preview-minimal" aria-hidden="true">
-        <div class="p-mark">Aa</div>
-        <div class="p-rule"></div>
-      </div>
-      <h2>EDICIÓN MINIMALISTA</h2>
-      <p class="card-type">tipo: elegante · sin ruido</p>
-      <p class="card-desc">Tipografía cuidada, mucho aire y cero decoración innecesaria.</p>
+      <h2>IA</h2>
+      <p class="card-type">capítulo 03 · donde estoy ahora</p>
+      <p class="card-desc">El CV como conversación: pregúntale lo que quieras saber sobre mí.</p>
       <span class="card-cta">&gt; SELECCIONAR</span>
     </a>
 
