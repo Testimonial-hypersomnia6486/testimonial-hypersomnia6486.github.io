@@ -59,6 +59,37 @@
   items.forEach(i => io.observe(i));
 })();
 
+/* ============ Mobile nav (hamburger) ============ */
+(function mobileNav(){
+  const btn = document.getElementById('menu-toggle');
+  const nav = document.getElementById('mobile-nav');
+  const topbar = document.querySelector('.topbar');
+  if (!btn || !nav) return;
+
+  function positionNav(){
+    nav.style.top = topbar.getBoundingClientRect().bottom + 'px';
+  }
+
+  function open(){
+    positionNav();
+    nav.hidden = false;
+    btn.setAttribute('aria-expanded', 'true');
+    document.addEventListener('keydown', onKeydown);
+  }
+  function close(){
+    nav.hidden = true;
+    btn.setAttribute('aria-expanded', 'false');
+    document.removeEventListener('keydown', onKeydown);
+  }
+  function onKeydown(e){ if (e.key === 'Escape') close(); }
+
+  btn.addEventListener('click', () => {
+    if (nav.hidden) open(); else close();
+  });
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+  window.addEventListener('resize', () => { if (!nav.hidden) positionNav(); });
+})();
+
 /* ============ Theme toggle ============ */
 (function theme(){
   const btn = document.getElementById('theme-toggle');

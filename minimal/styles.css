@@ -67,8 +67,46 @@ a{ color: inherit; }
 .theme-toggle{
   background: none; border: 1px solid var(--line); color: var(--fg);
   width: 30px; height:30px; border-radius: 50%; cursor:pointer; font-size:14px;
+  flex-shrink: 0;
 }
 .theme-toggle:hover{ border-color: var(--accent); }
+
+/* ---------- Mobile nav (hamburger + dropdown) ---------- */
+.menu-toggle{
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px; height: 40px;
+  background: none; border: 1px solid var(--line); border-radius: 50%;
+  cursor: pointer; flex-shrink: 0; padding: 0;
+}
+.menu-toggle span{ width: 16px; height: 1.5px; background: var(--fg); transition: transform .2s, opacity .2s; }
+.menu-toggle:hover{ border-color: var(--accent); }
+.menu-toggle[aria-expanded="true"] span:nth-child(1){ transform: translateY(6.5px) rotate(45deg); }
+.menu-toggle[aria-expanded="true"] span:nth-child(2){ opacity: 0; }
+.menu-toggle[aria-expanded="true"] span:nth-child(3){ transform: translateY(-6.5px) rotate(-45deg); }
+
+.mobile-nav{
+  position: fixed; left:0; right:0; top: 0; z-index: 39;
+  display: none;
+  flex-direction: column;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+  padding: 6px 6vw 14px;
+  max-height: calc(100vh - 60px);
+  max-height: calc(100dvh - 60px);
+  overflow-y: auto;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+.mobile-nav[hidden]{ display:none; }
+.mobile-nav a{
+  text-decoration:none; color: var(--fg); font-size: 18px;
+  padding: 13px 4px; border-bottom: 1px solid var(--line);
+}
+.mobile-nav a:last-child{ border-bottom: none; }
+.mobile-nav a:active{ color: var(--accent); }
 
 /* ---------- Layout ---------- */
 main{ max-width: 880px; margin: 0 auto; padding: 0 6vw; }
@@ -147,7 +185,18 @@ main{ max-width: 880px; margin: 0 auto; padding: 0 6vw; }
 .site-footer{ text-align:center; color: var(--fg-dim); font-size: 13px; padding: 50px 6vw 60px; }
 .footer-link{ text-decoration: underline; }
 
-@media (max-width: 640px){
+@media (max-width: 720px){
   .role{ grid-template-columns: 1fr; gap: 6px; }
   .topnav{ display:none; }
+  .menu-toggle{ display:flex; }
+  .mobile-nav:not([hidden]){ display:flex; }
+  .topbar{ padding: 16px 5vw; gap: 14px; }
+  .topbar-name{ font-size: 14px; }
+  .hero{ padding: 60px 0 44px; }
+  .contact-row{ flex-direction: column; gap: 14px; }
+}
+
+@media (max-width: 420px){
+  body{ font-size: 16px; }
+  .hero h1{ font-size: clamp(32px, 11vw, 44px); }
 }

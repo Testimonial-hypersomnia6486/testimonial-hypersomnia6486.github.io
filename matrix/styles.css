@@ -240,7 +240,10 @@ main{ max-width: 980px; margin: 0 auto; padding: 0 20px 60px; }
 .terminal-titlebar span:nth-child(1){ background:#ff5f57; }
 .terminal-titlebar span:nth-child(2){ background:#ffbd2e; }
 .terminal-titlebar span:nth-child(3){ background:#28c840; }
-.terminal-titlebar p{ margin: 0 0 0 auto; color: var(--fg-dim); font-size: 15px; }
+.terminal-titlebar p{
+  margin: 0 0 0 auto; color: var(--fg-dim); font-size: 15px;
+  min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
 .terminal-body{ padding: 22px 26px 28px; }
 
 .prompt-line{ margin: 0 0 4px; color: var(--fg-dim); }
@@ -416,4 +419,34 @@ main{ max-width: 980px; margin: 0 auto; padding: 0 20px 60px; }
   .terminal-body{ padding: 16px; }
   .glitch{ font-size: 26px; }
   main{ padding: 0 14px 40px; }
+
+  .topbar{ padding: 10px 14px; gap: 10px; }
+  .pixel-nav{ gap: 6px; justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; width: 100%; padding-bottom: 2px; -webkit-overflow-scrolling: touch; }
+  .pixel-nav button{ flex-shrink: 0; padding: 8px 12px; }
+  .fx-toggle{ padding: 8px 10px; }
+
+  #boot-screen{ padding: 5vh 5vw; font-size: 18px; }
+  #boot-skip{ left: 5vw; bottom: 3vh; }
+
+  .job-head, .job-body, .job-head-static, .job-body-static{ margin-left: 0; }
+  .timeline{ padding-left: 12px; }
+  .job-head{ padding: 12px; }
+  .job-body{ padding-left: 14px; }
+  .job-body-static{ padding-left: 14px; }
+
+  .hero-actions, .contact-links{ flex-direction: column; align-items: stretch; }
+  .hero-actions .pixel-btn, .contact-links .pixel-btn{ text-align: center; }
+
+  .section{ padding: 50px 0 10px; }
+}
+
+@media (max-width: 400px){
+  .glitch{ font-size: 21px; }
+  .role{ font-size: 17px; }
+}
+
+/* Larger tap targets on touch devices regardless of width */
+@media (pointer: coarse){
+  .pixel-nav button, .fx-toggle, .job-head{ min-height: 44px; }
+  .pixel-btn{ min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
 }

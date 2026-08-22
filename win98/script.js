@@ -1,5 +1,7 @@
 'use strict';
 
+function isMobile(){ return window.matchMedia('(max-width: 768px)').matches; }
+
 /* ============ BIOS / boot ============ */
 (function boot(){
   const bios = document.getElementById('bios');
@@ -135,6 +137,7 @@ function showBalloon(){
     const titlebar = win.querySelector('.win-title');
     let dragging = false, offX = 0, offY = 0;
     titlebar.addEventListener('mousedown', (e) => {
+      if (isMobile()) return;
       if (e.target.closest('.wbtn')) return;
       dragging = true;
       const rect = win.getBoundingClientRect();
@@ -150,8 +153,11 @@ function showBalloon(){
     });
     document.addEventListener('mouseup', () => dragging = false);
 
-    // touch drag
+    // touch drag — skipped on mobile, where windows are forced full-screen
+    // by CSS (see the max-width:768px block in styles.css) and dragging a
+    // fullscreen "app" makes no sense.
     titlebar.addEventListener('touchstart', (e) => {
+      if (isMobile()) return;
       if (e.target.closest('.wbtn')) return;
       const t = e.touches[0];
       const rect = win.getBoundingClientRect();
@@ -160,7 +166,7 @@ function showBalloon(){
       bringToFront(win);
     }, { passive: true });
     document.addEventListener('touchmove', (e) => {
-      if (!dragging) return;
+      if (!dragging || isMobile()) return;
       const t = e.touches[0];
       win.style.left = Math.max(0, t.clientX - offX) + 'px';
       win.style.top = Math.max(0, t.clientY - offY) + 'px';

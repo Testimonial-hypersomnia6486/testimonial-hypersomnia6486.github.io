@@ -10,6 +10,7 @@
   --desktop: #008080;
   --font-ui: Tahoma, 'MS Sans Serif', Geneva, Verdana, sans-serif;
   --font-pixel: 'Press Start 2P', monospace;
+  --taskbar-h: 34px;
 }
 
 *{ box-sizing: border-box; }
@@ -57,7 +58,11 @@ button{ font-family: inherit; }
 
 /* ---------- Desktop ---------- */
 #desktop[hidden]{ display:none; }
-#desktop{ position: relative; height: 100vh; width: 100vw; overflow: hidden; }
+#desktop{
+  position: relative; width: 100vw; overflow: hidden;
+  height: 100vh; /* fallback for browsers without dvh */
+  height: 100dvh;
+}
 
 .icons{
   position:absolute; top: 14px; left: 14px;
@@ -206,10 +211,13 @@ button{ font-family: inherit; }
 
 /* ---------- Taskbar ---------- */
 .taskbar{
-  position:absolute; left:0; right:0; bottom:0; height: 34px;
+  position:absolute; left:0; right:0; bottom:0;
+  height: calc(var(--taskbar-h) + env(safe-area-inset-bottom, 0px));
+  box-sizing: border-box;
   background: var(--face);
   border-top: 2px solid var(--face-light);
-  display:flex; align-items:center; gap: 6px; padding: 3px 6px;
+  display:flex; align-items:center; gap: 6px;
+  padding: 3px 6px calc(3px + env(safe-area-inset-bottom, 0px));
   z-index: 50;
 }
 .start-wrap{ position:relative; }
@@ -264,9 +272,60 @@ button{ font-family: inherit; }
 /* back-link (shared) override for win98 taskbar context — unused here, kept minimal */
 .back-link, .footer-link{ display:none; }
 
-@media (max-width: 640px){
-  .icons{ flex-direction:row; flex-wrap:wrap; width: calc(100vw - 28px); }
-  .dicon{ width: 64px; }
+@media (max-width: 768px){
+  :root{ --taskbar-h: 46px; }
+
+  #bios{ padding: 20px; font-size: 14px; }
+
+  .icons{
+    flex-direction:row; flex-wrap:wrap;
+    width: calc(100vw - 24px);
+    top: calc(10px + env(safe-area-inset-top, 0px));
+    gap: 14px 10px;
+  }
+  .dicon{ width: 72px; padding: 6px 2px; }
+  .dicon-img{ font-size: 28px; }
+  .dicon span:last-child{ font-size: 11px; line-height: 1.3; }
+
+  .balloon{ bottom: calc(var(--taskbar-h) + 12px); right: 10px; width: calc(100vw - 40px); max-width: 260px; }
+
+  /* Windows become full-screen single-view "apps" on mobile — free dragging
+     and manual resizing don't translate to touch, so we override the inline
+     left/top/width the desktop layout sets (JS also skips drag init below
+     this breakpoint, see script.js). */
+  .win{
+    left: 0 !important; top: 0 !important;
+    width: 100% !important; max-width: 100%; min-width: 0;
+    height: calc(100vh - var(--taskbar-h)) !important; /* fallback */
+    height: calc(100dvh - var(--taskbar-h)) !important;
+  }
+  .win-title{ padding: 10px 6px 10px 10px; }
+  .win-title-text{ font-size: 14px; }
+  .wbtn{ width: 34px; height: 30px; font-size: 15px; }
+  .wbtn[data-act="max"]{ display:none; }
+
+  .win-body{ padding: 16px; font-size: 14px; -webkit-overflow-scrolling: touch; }
+  .win-body-mono pre{ font-size: 12px; }
+  .skill98 span{ width: 112px; font-size: 12.5px; }
+
   .explorer{ flex-direction:column; }
-  .explorer-list{ width:100%; max-height:120px; border-right:none; border-bottom:1px solid var(--face-dark); }
+  .explorer-list{ width:100%; max-height:130px; border-right:none; border-bottom:1px solid var(--face-dark); }
+  .exp-row{ padding: 10px; font-size: 13px; }
+
+  .dialog-btns{ flex-direction: column; align-items: stretch; }
+  .win98-btn{ text-align:center; padding: 10px 16px; }
+
+  .start-menu{ width: min(280px, calc(100vw - 20px)); bottom: calc(var(--taskbar-h) + 4px); }
+  .start-items button, .start-items a{ padding: 11px 12px; font-size: 14px; }
+  .start-btn{ padding: 8px 12px 8px 8px; font-size: 14px; }
+
+  .task-btn{ padding: 6px 12px; font-size: 12px; max-width: 120px; }
+  .tray{ padding: 6px 10px; font-size: 12px; }
+}
+
+/* Larger touch targets on touch devices regardless of width */
+@media (pointer: coarse){
+  .wbtn{ min-width: 30px; min-height: 26px; }
+  .exp-row{ min-height: 40px; }
+  .dicon{ min-height: 44px; }
 }
