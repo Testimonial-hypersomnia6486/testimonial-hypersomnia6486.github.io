@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kepa Cuevas Barrasa · Elige tu CV</title>
-<meta name="description" content="CV interactivo de Kepa Cuevas Barrasa. Elige edición: Matrix, Windows 98, Minimalista o Tierra Media.">
+<meta name="description" content="CV interactivo de Kepa Cuevas Barrasa. Elige edición: Matrix, Windows 98 o Minimalista.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22><rect width=%2216%22 height=%2216%22 fill=%22%23111%22/><text x=%228%22 y=%2212%22 font-size=%2210%22 text-anchor=%22middle%22 fill=%22%23fff%22 font-family=%22monospace%22>K</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,48 +18,49 @@
 <main class="select-screen">
   <p class="eyebrow">KEPA CUEVAS BARRASA · SOFTWARE ENGINEER</p>
   <h1 class="select-title">ELIGE TU CV</h1>
-  <p class="select-sub">Mismo currículum, cuatro presentaciones. ¿Con cuál empezamos?</p>
+  <p class="select-sub">Mismo currículum, tres presentaciones. ¿Con cuál empezamos?</p>
 
-  <div class="balls" role="listbox" aria-label="Ediciones del CV">
+  <div class="cards" role="listbox" aria-label="Ediciones del CV">
 
-    <a class="ball-option" href="matrix/" role="option" data-key="1" data-ball="matrix">
-      <span class="pokeball" aria-hidden="true">
-        <span class="pb-half"></span>
-        <span class="pb-band"></span>
-        <span class="pb-button"><span class="pb-button-inner"></span></span>
-      </span>
-      <span class="ball-name">MATRIX</span>
-      <span class="ball-sub">hacker · terminal</span>
+    <a class="card card-matrix" href="matrix/" role="option" data-key="1">
+      <span class="card-index">01</span>
+      <div class="preview preview-matrix" aria-hidden="true">
+        <div class="p-glyphs">
+          <span>ﾊ</span><span>1</span><span>ｱ</span><span>0</span><span>ｳ</span><span>ｴ</span>
+          <span>0</span><span>ｶ</span><span>1</span><span>ｻ</span><span>ﾀ</span><span>1</span>
+        </div>
+        <div class="p-cursor">&gt; kepa@cv:~$ <span class="p-blink">_</span></div>
+      </div>
+      <h2>EDICIÓN MATRIX</h2>
+      <p class="card-type">tipo: hacker · terminal</p>
+      <p class="card-desc">Lluvia de código, boot de sistema y una consola interactiva de verdad.</p>
+      <span class="card-cta">&gt; SELECCIONAR</span>
     </a>
 
-    <a class="ball-option" href="win98/" role="option" data-key="2" data-ball="win98">
-      <span class="pokeball" aria-hidden="true">
-        <span class="pb-half"></span>
-        <span class="pb-band"></span>
-        <span class="pb-button"><span class="pb-button-inner"></span></span>
-      </span>
-      <span class="ball-name">WINDOWS 98</span>
-      <span class="ball-sub">retro-OS · nostalgia</span>
+    <a class="card card-win98" href="win98/" role="option" data-key="2">
+      <span class="card-index">02</span>
+      <div class="preview preview-win98" aria-hidden="true">
+        <div class="p-win">
+          <div class="p-titlebar"><span>CV.exe</span><span class="p-x">×</span></div>
+          <div class="p-body"><div class="p-icon"></div><div class="p-line"></div><div class="p-line short"></div></div>
+        </div>
+      </div>
+      <h2>EDICIÓN WINDOWS 98</h2>
+      <p class="card-type">tipo: retro-OS · nostalgia</p>
+      <p class="card-desc">Ventanas de verdad, Menú Inicio y un escritorio lleno de iconos.</p>
+      <span class="card-cta">&gt; SELECCIONAR</span>
     </a>
 
-    <a class="ball-option" href="minimal/" role="option" data-key="3" data-ball="minimal">
-      <span class="pokeball" aria-hidden="true">
-        <span class="pb-half"></span>
-        <span class="pb-band"></span>
-        <span class="pb-button"><span class="pb-button-inner"></span></span>
-      </span>
-      <span class="ball-name">MINIMALISTA</span>
-      <span class="ball-sub">elegante · sin ruido</span>
-    </a>
-
-    <a class="ball-option" href="lotr/" role="option" data-key="4" data-ball="lotr">
-      <span class="pokeball" aria-hidden="true">
-        <span class="pb-half"></span>
-        <span class="pb-band"></span>
-        <span class="pb-button"><span class="pb-button-inner"></span></span>
-      </span>
-      <span class="ball-name">TIERRA MEDIA</span>
-      <span class="ball-sub">fantasía · 8-bit RPG</span>
+    <a class="card card-minimal" href="minimal/" role="option" data-key="3">
+      <span class="card-index">03</span>
+      <div class="preview preview-minimal" aria-hidden="true">
+        <div class="p-mark">Aa</div>
+        <div class="p-rule"></div>
+      </div>
+      <h2>EDICIÓN MINIMALISTA</h2>
+      <p class="card-type">tipo: elegante · sin ruido</p>
+      <p class="card-desc">Tipografía cuidada, mucho aire y cero decoración innecesaria.</p>
+      <span class="card-cta">&gt; SELECCIONAR</span>
     </a>
 
   </div>
