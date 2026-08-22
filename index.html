@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kepa Cuevas Barrasa · Software Engineer</title>
+<meta name="description" content="CV interactivo de Kepa Cuevas Barrasa, Software Engineer especializado en Java/Spring Boot y microservicios.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22><rect width=%2216%22 height=%2216%22 fill=%22%23000%22/><text x=%228%22 y=%2212%22 font-size=%2210%22 text-anchor=%22middle%22 fill=%22%2300ff41%22 font-family=%22monospace%22>K</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<canvas id="matrix-canvas" aria-hidden="true"></canvas>
+<div class="crt-overlay" aria-hidden="true"></div>
+
+<div id="boot-screen" role="status" aria-live="polite">
+  <pre id="boot-text"></pre>
+  <div id="boot-skip">[ pulsa cualquier tecla o clic para saltar ]</div>
+</div>
+
+<div id="site" hidden>
+
+  <header class="topbar">
+    <div class="logo">KEPA_CUEVAS<span class="blink">_</span></div>
+    <nav class="pixel-nav" aria-label="Navegación principal">
+      <button data-target="#whoami">whoami</button>
+      <button data-target="#experiencia">experiencia</button>
+      <button data-target="#skills">skills</button>
+      <button data-target="#proyectos">proyectos_ia</button>
+      <button data-target="#formacion">formación</button>
+      <button data-target="#contacto">contacto</button>
+    </nav>
+    <button id="fx-toggle" class="fx-toggle" aria-pressed="true" title="Activar/desactivar efectos de fondo">FX: ON</button>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section id="hero" class="section hero">
+      <div class="terminal-window">
+        <div class="terminal-titlebar"><span></span><span></span><span></span><p>kepa@portfolio:~$</p></div>
+        <div class="terminal-body">
+          <p class="prompt-line"><span class="prompt">$</span> whoami</p>
+          <h1 class="glitch" data-text="KEPA CUEVAS BARRASA">KEPA CUEVAS BARRASA</h1>
+          <p class="role">&gt; SOFTWARE ENGINEER — JAVA / SPRING BOOT / MICROSERVICIOS</p>
+          <p class="prompt-line"><span class="prompt">$</span> cat mission.txt</p>
+          <p class="typewriter-static">Profesional IT desde 2017 en seguros, ecommerce y sanidad. Backend de oficio,
+          full-stack por curiosidad: de noche construyo apps móviles y web con ayuda de IA para seguir aprendiendo
+          fuera de mi stack diario.</p>
+          <div class="hero-actions">
+            <a href="#experiencia" class="pixel-btn">&gt; VER EXPERIENCIA</a>
+            <a href="#proyectos" class="pixel-btn pixel-btn-alt">&gt; VER PROYECTOS_IA</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHOAMI / ABOUT -->
+    <section id="whoami" class="section">
+      <h2 class="section-title">// 01 · whoami</h2>
+      <div class="pixel-card">
+        <p>Ingeniero de software desde 2017, especializado en backend Java/Spring Boot para microservicios en
+        sectores de seguros, ecommerce y sanidad. He trabajado en análisis, diseño y gestión de desarrollos, además
+        de mantenimiento y evolución de sistemas en producción.</p>
+        <p>Perfil resolutivo, buena comunicación y compromiso. Cómodo moviéndome entre arquitectura hexagonal,
+        mensajería asíncrona (Kafka) y despliegues en Kubernetes — y, en paralelo, aprendiendo por mi cuenta
+        desarrollo móvil, IA aplicada y producto end-to-end.</p>
+        <ul class="lang-list">
+          <li><span>ESPAÑOL</span><span class="tag">C2</span></li>
+          <li><span>EUSKERA</span><span class="tag">C1</span></li>
+          <li><span>INGLÉS</span><span class="tag">B2</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- EXPERIENCIA -->
+    <section id="experiencia" class="section">
+      <h2 class="section-title">// 02 · experiencia.log</h2>
+      <div class="timeline">
+
+        <article class="job" data-open="true">
+          <button class="job-head">
+            <span class="job-dot"></span>
+            <span class="job-meta">
+              <span class="job-company">SOPRA STERIA <em>(Leroy Merlin)</em></span>
+              <span class="job-dates">sep 2025 — Actualidad</span>
+            </span>
+            <span class="job-caret">▾</span>
+          </button>
+          <div class="job-body">
+            <p>Análisis y desarrollo de microservicios backend con Spring Boot para la familia de productos HF3P en
+            Leroy Merlin España. Consultas a PostgreSQL y MongoDB. Desarrollo de servicios de comunicación entre
+            microservicios y agregación de datos. Soporte en diseño de arquitectura, incluyendo microservicios desde
+            cero con arquitectura hexagonal. Despliegue en GKE/Kubernetes, calidad con Sonar, tests con Mockito/JUnit,
+            eventos asíncronos con Kafka Avro.</p>
+            <div class="stack">
+              <span>Java 17+</span><span>Spring Boot 4</span><span>API REST</span><span>Kafka Avro</span>
+              <span>PostgreSQL</span><span>MongoDB</span><span>GKE/Kubernetes</span><span>Artifactory</span>
+              <span>GitHub Copilot</span><span>Maven</span><span>Mockito</span><span>JUnit</span>
+              <span>Arq. Hexagonal</span><span>Scrum</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="job">
+          <button class="job-head">
+            <span class="job-dot"></span>
+            <span class="job-meta">
+              <span class="job-company">KNOWMAD MOOD <em>(El Corte Inglés)</em></span>
+              <span class="job-dates">ago 2023 — sep 2025</span>
+            </span>
+            <span class="job-caret">▾</span>
+          </button>
+          <div class="job-body">
+            <p>Análisis y desarrollo de microservicios backend con Spring Boot para el dominio de catálogo en El
+            Corte Inglés. Consultas a MongoDB. Servicios de comunicación entre microservicios y agregación de datos.
+            Soporte en diseño de arquitectura. Despliegue con Jenkins y Clarive en distintos entornos, calidad con
+            Sonar, tests con Mockito/JUnit, eventos asíncronos con Kafka.</p>
+            <div class="stack">
+              <span>Java 11-17</span><span>Spring Boot</span><span>MongoDB</span><span>Jenkins</span>
+              <span>Docker</span><span>Kubernetes</span><span>Kibana</span><span>Bitbucket</span>
+              <span>Couchbase</span><span>Clarive</span><span>Kafka</span><span>Scrum</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="job">
+          <button class="job-head">
+            <span class="job-dot"></span>
+            <span class="job-meta">
+              <span class="job-company">KNOWMAD MOOD <em>(BeeDigital)</em></span>
+              <span class="job-dates">nov 2022 — jul 2023</span>
+            </span>
+            <span class="job-caret">▾</span>
+          </button>
+          <div class="job-body">
+            <p>Análisis y desarrollo de microservicios backend con Spring Boot para posicionamiento de empresas en
+            internet. Consultas a DocumentDB y DynamoDB. Diseño de servicios de comunicación entre microservicios y
+            agregación de datos. Control de versiones con repositorios Git de Amazon. Despliegue con Jenkins, calidad
+            con Sonar, tests con Mockito/JUnit, eventos asíncronos con Kafka.</p>
+            <div class="stack">
+              <span>Java 19</span><span>Spring Boot</span><span>AWS</span><span>DynamoDB</span>
+              <span>DocumentDB</span><span>Jenkins</span><span>JWT</span><span>Kafka</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="job">
+          <button class="job-head">
+            <span class="job-dot"></span>
+            <span class="job-meta">
+              <span class="job-company">NTT DATA EUROPE</span>
+              <span class="job-dates">jul 2017 — nov 2022</span>
+            </span>
+            <span class="job-caret">▾</span>
+          </button>
+          <div class="job-body">
+            <p>Análisis, diseño y gestión de desarrollos. Mantenimiento y desarrollo de evolutivos. Desarrollo de
+            mejoras funcionales y resolución de incidencias. Integración con módulos WSSisnet. Configuración de
+            despliegues en Jenkins y DevOps. Metodología Scrum.</p>
+            <div class="stack">
+              <span>Java 7-11</span><span>API REST</span><span>Spring Boot</span><span>Maven</span>
+              <span>SVN</span><span>Git</span><span>Azure</span><span>PostgreSQL</span>
+              <span>Oracle</span><span>Jenkins</span><span>Scrum</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section">
+      <h2 class="section-title">// 03 · skills.dat</h2>
+      <div class="skills-grid">
+        <div class="skill" data-level="5"><span class="skill-name">Java</span><div class="bar"><div class="bar-fill"></div></div></div>
+        <div class="skill" data-level="5"><span class="skill-name">Spring Boot</span><div class="bar"><div class="bar-fill"></div></div></div>
+        <div class="skill" data-level="5"><span class="skill-name">Microservicios</span><div class="bar"><div class="bar-fill"></div></div></div>
+        <div class="skill" data-level="4"><span class="skill-name">Arq. Hexagonal</span><div class="bar"><div class="bar-fill"></div></div></div>
+        <div class="skill" data-level="4"><span class="skill-name">Kafka</span><div class="bar"><div class="bar-fill"></div></div></div>
+        <div class="skill" data-level="4"><span class="skill-name">Kubernetes</span><div class="bar"><div class="bar-fill"></div></div></div>
+        <div class="skill" data-level="4"><span class="skill-name">PostgreSQL</span><div class="bar"><div class="bar-fill"></div></div></div>
+        <div class="skill" data-level="4"><span class="skill-name">MongoDB</span><div class="bar"><div class="bar-fill"></div></div></div>
+        <div class="skill" data-level="4"><span class="skill-name">Docker</span><div class="bar"><div class="bar-fill"></div></div></div>
+        <div class="skill" data-level="4"><span class="skill-name">CI/CD</span><div class="bar"><div class="bar-fill"></div></div></div>
+        <div class="skill" data-level="4"><span class="skill-name">Git</span><div class="bar"><div class="bar-fill"></div></div></div>
+        <div class="skill" data-level="4"><span class="skill-name">GitHub Copilot</span><div class="bar"><div class="bar-fill"></div></div></div>
+        <div class="skill" data-level="3"><span class="skill-name">Azure / AWS / GCP</span><div class="bar"><div class="bar-fill"></div></div></div>
+        <div class="skill" data-level="4"><span class="skill-name">Scrum</span><div class="bar"><div class="bar-fill"></div></div></div>
+        <div class="skill" data-level="4"><span class="skill-name">API REST</span><div class="bar"><div class="bar-fill"></div></div></div>
+      </div>
+    </section>
+
+    <!-- PROYECTOS IA -->
+    <section id="proyectos" class="section">
+      <h2 class="section-title">// 04 · proyectos_autodidactas --con-ia</h2>
+      <p class="section-intro">Fuera del horario de oficina construyo productos completos en stacks que no uso a
+      diario en el trabajo, usando IA (Claude Code) como copiloto para acelerar el aprendizaje: de backend puro a
+      apps móviles nativas, Expo/React Native y producto end-to-end con base de datos y despliegue real.</p>
+
+      <div class="project-grid">
+
+        <article class="pixel-card project-card">
+          <h3>StiEx <span class="ptag">Android nativo</span></h3>
+          <p>Exportador/importador de stickers de WhatsApp sin rootear el teléfono. Lee la carpeta protegida de
+          WhatsApp vía Storage Access Framework, convierte fotos a stickers (estáticos y animados WEBP) respetando
+          los límites reales de WhatsApp (≤30 por pack, ≤100KB/500KB), y los publica con la API oficial de terceros
+          de WhatsApp.</p>
+          <div class="stack"><span>Kotlin</span><span>Jetpack Compose</span><span>SAF</span><span>WebP</span></div>
+        </article>
+
+        <article class="pixel-card project-card">
+          <h3>gim-app <span class="ptag">Expo / React Native</span></h3>
+          <p>App de entrenamiento y nutrición completa: generador de rutinas basado en reglas (objetivo, nivel, días,
+          equipo), sesión guiada con temporizador de descanso, seguimiento de series/peso reales vs. plan, y un
+          tracker de despensa que calcula fecha de agotamiento de cada producto de forma derivada, sin histórico
+          redundante. Auth y datos en Supabase con Row Level Security.</p>
+          <div class="stack"><span>Expo</span><span>React Native</span><span>TypeScript</span><span>Supabase</span><span>PostgreSQL</span></div>
+        </article>
+
+        <article class="pixel-card project-card">
+          <h3>cartelera-app <span class="ptag">Java · Spring Boot · en producción</span></h3>
+          <p>Sustituto personal de TV Time: seguimiento de series/películas con login Google/JWT, multiusuario,
+          amigos, chat y feed de actividad. Arquitectura hexagonal, caché con Caffeine, guardado incremental de
+          biblioteca. Desplegado en Render con Postgres (Neon) en producción real, con usuarios activos.</p>
+          <div class="stack"><span>Java</span><span>Spring Boot</span><span>Arq. Hexagonal</span><span>PostgreSQL</span><span>Docker</span><span>Render</span></div>
+          <a class="pixel-link" href="https://cartelera-app.onrender.com" target="_blank" rel="noopener">&gt; ver en producción ↗</a>
+        </article>
+
+        <article class="pixel-card project-card">
+          <h3>PhotoSwipe <span class="ptag">Expo / React Native</span></h3>
+          <p>App para revisar la galería del móvil a golpe de swipe y decidir rápido qué foto conservar o borrar —
+          gestión de fotos como un juego de cartas, pensada para vaciar carretes acumulados sin fricción.</p>
+          <div class="stack"><span>Expo</span><span>React Native</span><span>TypeScript</span></div>
+        </article>
+
+        <article class="pixel-card project-card">
+          <h3>Bounce <span class="ptag">Android nativo</span></h3>
+          <p>App Android nativa con WebView como capa de presentación sobre HTML/JS, explorando el patrón híbrido
+          nativo+web para reutilizar interfaz entre plataformas sin sacrificar la integración con Android.</p>
+          <div class="stack"><span>Kotlin</span><span>WebView</span><span>HTML/JS</span></div>
+        </article>
+
+        <article class="pixel-card project-card project-card-ghost">
+          <h3>&gt; siguiente commit...</h3>
+          <p>Este mismo sitio: construido con Claude Code, publicado con GitHub Actions/Pages. El aprendizaje
+          autodidacta no para en el móvil — sigue en frontend, DevOps y en cómo integrar IA en el propio flujo de
+          trabajo.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- FORMACION -->
+    <section id="formacion" class="section">
+      <h2 class="section-title">// 05 · formación.log</h2>
+      <div class="timeline">
+        <article class="job job-static">
+          <div class="job-head job-head-static">
+            <span class="job-dot"></span>
+            <span class="job-meta">
+              <span class="job-company">Colegio Zabalburu</span>
+              <span class="job-dates">2013 — 2015</span>
+            </span>
+          </div>
+          <div class="job-body job-body-static">
+            <p>Técnico Superior, Desarrollo de Aplicaciones Web. Formación reglada.</p>
+          </div>
+        </article>
+        <article class="job job-static">
+          <div class="job-head job-head-static">
+            <span class="job-dot"></span>
+            <span class="job-meta">
+              <span class="job-company">IEFPS Elorrieta-Erreka Mari LHII</span>
+              <span class="job-dates">2010 — 2012</span>
+            </span>
+          </div>
+          <div class="job-body job-body-static">
+            <p>Técnico Superior, Desarrollo de Aplicaciones Informáticas. Formación reglada.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="section">
+      <h2 class="section-title">// 06 · contacto.sh</h2>
+      <div class="terminal-window">
+        <div class="terminal-titlebar"><span></span><span></span><span></span><p>contacto</p></div>
+        <div class="terminal-body">
+          <p class="prompt-line"><span class="prompt">$</span> ./contacto.sh --send</p>
+          <div class="contact-links">
+            <a class="pixel-btn" href="mailto:kepa.cuevas@gmail.com">&gt; EMAIL</a>
+            <a class="pixel-btn" href="https://www.linkedin.com/in/kepa-cuevas-barrasa-135338137/" target="_blank" rel="noopener">&gt; LINKEDIN</a>
+            <a class="pixel-btn" href="https://github.com/kcuevasb" target="_blank" rel="noopener">&gt; GITHUB</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="console-wrap">
+        <div class="terminal-window">
+          <div class="terminal-titlebar"><span></span><span></span><span></span><p>consola interactiva</p></div>
+          <div class="terminal-body">
+            <div id="console-log" aria-live="polite">
+              <p>Escribe <strong>help</strong> para ver comandos disponibles.</p>
+            </div>
+            <p class="prompt-line console-input-line">
+              <span class="prompt">kepa@portfolio:~$</span>
+              <input id="console-input" type="text" autocomplete="off" spellcheck="false" aria-label="Consola interactiva">
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>&gt; construido con HTML/CSS/JS puro + Claude Code · sin frameworks, como en 1999 pero con IA. 2026.</p>
+  </footer>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
