@@ -1,0 +1,270 @@
+/* ===== Kepa Cuevas — CV interactivo · Windows 98 theme ===== */
+
+:root{
+  --face: #c0c0c0;
+  --face-dark: #808080;
+  --face-darker: #404040;
+  --face-light: #ffffff;
+  --navy: #000080;
+  --navy-light: #1084d0;
+  --desktop: #008080;
+  --font-ui: Tahoma, 'MS Sans Serif', Geneva, Verdana, sans-serif;
+  --font-pixel: 'Press Start 2P', monospace;
+}
+
+*{ box-sizing: border-box; }
+
+html, body{ height: 100%; }
+
+body{
+  margin:0;
+  background: var(--desktop);
+  color:#000;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  overflow: hidden;
+}
+
+button{ font-family: inherit; }
+
+/* bevel helpers */
+.bevel-out{
+  border-top: 2px solid var(--face-light);
+  border-left: 2px solid var(--face-light);
+  border-right: 2px solid var(--face-darker);
+  border-bottom: 2px solid var(--face-darker);
+}
+.bevel-in{
+  border-top: 2px solid var(--face-darker);
+  border-left: 2px solid var(--face-darker);
+  border-right: 2px solid var(--face-light);
+  border-bottom: 2px solid var(--face-light);
+}
+
+/* ---------- BIOS / boot ---------- */
+#bios{
+  position: fixed; inset:0; z-index: 99;
+  background:#000; color:#a8a8a8;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 16px;
+  padding: 30px 40px;
+  cursor: pointer;
+}
+#bios-text{ white-space: pre-wrap; margin:0; }
+#bios-skip{ position:absolute; bottom: 30px; left:40px; color:#666; animation: blink98 1.2s steps(2) infinite; }
+#bios.hide{ display:none; }
+@keyframes blink98{ 50%{ opacity:0; } }
+
+/* ---------- Desktop ---------- */
+#desktop[hidden]{ display:none; }
+#desktop{ position: relative; height: 100vh; width: 100vw; overflow: hidden; }
+
+.icons{
+  position:absolute; top: 14px; left: 14px;
+  display:flex; flex-direction:column; gap: 18px;
+  z-index: 2;
+}
+.dicon{
+  background: transparent; border: 1px solid transparent;
+  color:#fff; text-shadow: 1px 1px 1px #000;
+  display:flex; flex-direction:column; align-items:center; gap:4px;
+  width: 78px; cursor:pointer; text-decoration:none;
+  font-size: 12px;
+  padding: 4px;
+}
+.dicon:hover, .dicon:focus-visible{ border:1px dotted #fff; }
+.dicon-img{ font-size: 30px; line-height:1; }
+.dicon span:last-child{ text-align:center; }
+
+/* ---------- Balloon ---------- */
+.balloon{
+  position:absolute; right: 16px; bottom: 46px; width: 240px;
+  background: #ffffe1; color:#000; z-index: 40;
+  border: 1px solid #000; box-shadow: 3px 3px 0 rgba(0,0,0,0.3);
+  font-size: 12px;
+}
+.balloon-title{ background:#000080; color:#fff; padding:2px 6px; display:flex; justify-content:space-between; }
+.balloon-x{ cursor:pointer; }
+.balloon-body{ padding: 8px; }
+
+/* ---------- Windows ---------- */
+.win{
+  position:absolute;
+  background: var(--face);
+  min-width: 260px;
+  z-index: 5;
+  border-top: 2px solid var(--face-light);
+  border-left: 2px solid var(--face-light);
+  border-right: 2px solid var(--face-darker);
+  border-bottom: 2px solid var(--face-darker);
+  box-shadow: 4px 4px 10px rgba(0,0,0,0.4);
+  display:flex;
+  flex-direction: column;
+}
+.win[hidden]{ display:none; }
+.win.active{ z-index: 20; }
+
+.win-title{
+  background: linear-gradient(90deg, var(--navy), var(--navy-light));
+  color:#fff;
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 3px 4px 3px 6px;
+  font-weight:bold;
+  cursor: default;
+  user-select:none;
+  flex-shrink:0;
+}
+.win:not(.active) .win-title{ background: linear-gradient(90deg,#808080,#b5b5b5); }
+.win-title-text{ font-size: 13px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.win-btns{ display:flex; gap:2px; }
+.wbtn{
+  width: 18px; height:16px; background: var(--face); color:#000;
+  border-top: 1px solid var(--face-light); border-left: 1px solid var(--face-light);
+  border-right: 1px solid var(--face-darker); border-bottom: 1px solid var(--face-darker);
+  font-size: 11px; line-height:1; cursor:pointer; padding:0;
+}
+.wbtn:active{ border-color: var(--face-darker) var(--face-light) var(--face-light) var(--face-darker); }
+.wbtn-x{ font-weight:bold; }
+
+.win-menubar{ padding: 3px 8px; font-size:12px; border-bottom: 1px solid var(--face-dark); flex-shrink:0; }
+
+.win-body{
+  padding: 14px 16px;
+  overflow-y:auto;
+  background: var(--face);
+  line-height:1.5;
+}
+.win-body p{ margin: 0 0 12px; }
+.win-body-mono{ background:#fff; padding:0; }
+.win-body-mono pre{
+  margin:0; padding: 10px 14px; font-family:'Consolas','Courier New',monospace;
+  font-size: 12.5px; white-space: pre-wrap; color:#000;
+}
+
+.win-table{ border-collapse: collapse; width:100%; margin-top: 8px; }
+.win-table th, .win-table td{ border:1px solid var(--face-dark); padding: 4px 8px; text-align:left; font-size:12px; }
+.win-table th{ background:#d8d8d8; }
+
+/* ---------- Skills panel (progress bars) ---------- */
+.skills98{ display:flex; flex-direction:column; gap: 10px; }
+.skill98{ display:flex; align-items:center; gap: 10px; }
+.skill98 span{ width: 140px; flex-shrink:0; font-size:12px; }
+.p98{
+  flex:1; height: 18px; background:#fff;
+  border-top: 1px solid var(--face-darker); border-left: 1px solid var(--face-darker);
+  border-right: 1px solid var(--face-light); border-bottom: 1px solid var(--face-light);
+  padding: 2px; display:flex; gap: 2px;
+}
+.p98-fill{
+  height:100%; width:0%;
+  background-image: repeating-linear-gradient(90deg, #000080 0 8px, transparent 8px 10px);
+  background-color: #0a246a;
+  transition: width 1s steps(10);
+}
+
+/* ---------- Explorer (proyectos) ---------- */
+.win-explorer .win-body{ display:none; }
+.explorer{ display:flex; flex:1; min-height: 260px; overflow:hidden; }
+.explorer-list{
+  width: 210px; background:#fff; border-right: 1px solid var(--face-dark);
+  display:flex; flex-direction:column; overflow-y:auto; flex-shrink:0;
+}
+.exp-row{
+  text-align:left; background:transparent; border:none; padding: 6px 10px;
+  cursor:pointer; font-size:12px; display:flex; gap:6px; align-items:center;
+}
+.exp-row:hover{ background:#e8e8e8; }
+.exp-row.active{ background: var(--navy); color:#fff; }
+.explorer-preview{ flex:1; padding: 14px 18px; overflow-y:auto; background: var(--face); }
+.exp-detail h3{ margin:0 0 8px; font-size:15px; }
+.exp-detail h3 small{ font-weight:normal; color:#333; font-size:12px; }
+.exp-detail p{ margin:0 0 10px; font-size:12.5px; line-height:1.6; }
+.exp-stack{ color:#000080; font-weight:bold; }
+.exp-link{ color:#000080; }
+
+/* ---------- Contact dialog ---------- */
+.win-dialog-body{ text-align:center; }
+.dialog-icon{ font-size: 30px; margin: 0 0 6px; }
+.dialog-btns{ display:flex; gap:8px; justify-content:center; margin-top: 14px; flex-wrap:wrap; }
+.win98-btn{
+  background: var(--face); color:#000; text-decoration:none;
+  padding: 6px 16px; font-size:12px;
+  border-top: 2px solid var(--face-light); border-left: 2px solid var(--face-light);
+  border-right: 2px solid var(--face-darker); border-bottom: 2px solid var(--face-darker);
+}
+.win98-btn:active{ border-color: var(--face-darker) var(--face-light) var(--face-light) var(--face-darker); }
+
+/* ---------- Shutdown ---------- */
+.shutdown{
+  position:fixed; inset:0; background:#000; color:#fff; z-index: 90;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;
+  font-size: 20px;
+}
+.shutdown-sub{ font-size: 14px; color:#aaa; }
+
+/* ---------- Taskbar ---------- */
+.taskbar{
+  position:absolute; left:0; right:0; bottom:0; height: 34px;
+  background: var(--face);
+  border-top: 2px solid var(--face-light);
+  display:flex; align-items:center; gap: 6px; padding: 3px 6px;
+  z-index: 50;
+}
+.start-wrap{ position:relative; }
+.start-btn{
+  display:flex; align-items:center; gap:6px;
+  background: var(--face); font-weight:bold; font-size:13px;
+  padding: 3px 10px 3px 6px; cursor:pointer;
+  border-top: 2px solid var(--face-light); border-left: 2px solid var(--face-light);
+  border-right: 2px solid var(--face-darker); border-bottom: 2px solid var(--face-darker);
+}
+.start-btn:active, .start-btn.open{ border-color: var(--face-darker) var(--face-light) var(--face-light) var(--face-darker); }
+.start-flag{ color:#c00; font-weight:bold; }
+
+.start-menu{
+  position:absolute; bottom: 38px; left:0; width: 260px;
+  background: var(--face);
+  border-top: 2px solid var(--face-light); border-left: 2px solid var(--face-light);
+  border-right: 2px solid var(--face-darker); border-bottom: 2px solid var(--face-darker);
+  display:flex; z-index: 60;
+  box-shadow: 3px 3px 8px rgba(0,0,0,0.4);
+}
+.start-menu[hidden]{ display:none; }
+.start-side{
+  writing-mode: vertical-rl; transform: rotate(180deg);
+  background: linear-gradient(180deg, var(--navy), #1a1aa8);
+  color:#fff; font-weight:bold; font-size: 15px; padding: 10px 6px;
+  letter-spacing: 1px;
+}
+.start-items{ flex:1; display:flex; flex-direction:column; padding: 4px; }
+.start-items button, .start-items a{
+  background:transparent; border:none; text-align:left; text-decoration:none; color:#000;
+  padding: 6px 10px; font-size:12px; cursor:pointer; display:block;
+}
+.start-items button:hover, .start-items a:hover{ background: var(--navy); color:#fff; }
+.start-items hr{ border:none; border-top:1px solid var(--face-dark); margin: 4px 2px; }
+
+.taskbar-tasks{ flex:1; display:flex; gap:4px; overflow-x:auto; }
+.task-btn{
+  background: var(--face); font-size:12px; padding: 3px 10px; max-width: 160px;
+  overflow:hidden; text-overflow:ellipsis; white-space:nowrap; cursor:pointer;
+  border-top: 2px solid var(--face-light); border-left: 2px solid var(--face-light);
+  border-right: 2px solid var(--face-darker); border-bottom: 2px solid var(--face-darker);
+}
+.task-btn.active{ border-color: var(--face-darker) var(--face-light) var(--face-light) var(--face-darker); background:#d4d0c8; }
+
+.tray{
+  background: var(--face);
+  border-top: 1px solid var(--face-darker); border-left: 1px solid var(--face-darker);
+  padding: 4px 10px; font-size:12px;
+}
+
+/* back-link (shared) override for win98 taskbar context — unused here, kept minimal */
+.back-link, .footer-link{ display:none; }
+
+@media (max-width: 640px){
+  .icons{ flex-direction:row; flex-wrap:wrap; width: calc(100vw - 28px); }
+  .dicon{ width: 64px; }
+  .explorer{ flex-direction:column; }
+  .explorer-list{ width:100%; max-height:120px; border-right:none; border-bottom:1px solid var(--face-dark); }
+}

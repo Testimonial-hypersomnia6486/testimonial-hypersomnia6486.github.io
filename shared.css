@@ -1,0 +1,9 @@
+/* Shared across every CV edition — kept intentionally tiny and theme-agnostic. */
+.back-link{
+  font-size: 13px;
+  text-decoration: none;
+  opacity: 0.75;
+}
+.back-link:hover{ opacity: 1; }
+.footer-link{ text-decoration: none; opacity: 0.7; }
+.footer-link:hover{ opacity: 1; }

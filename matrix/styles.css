@@ -130,11 +130,14 @@ main{ max-width: 980px; margin: 0 auto; padding: 0 20px 60px; }
   border-bottom: var(--pixel-border) solid var(--green-deep);
   flex-wrap: wrap;
 }
+.brand{ display:flex; align-items:center; gap: 12px; }
 .logo{
   font-family: var(--font-pixel);
   font-size: 13px;
   color: var(--green);
 }
+
+.back-link, .footer-link{ color: var(--green); font-family: var(--font-term); }
 .blink{ animation: blink 1s steps(2) infinite; }
 
 .pixel-nav{
