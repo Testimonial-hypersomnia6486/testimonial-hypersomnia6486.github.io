@@ -1,0 +1,113 @@
+/* ===== Kepa Cuevas — CV exportable, diseño elegante para lectura profesional ===== */
+
+:root{
+  --ink: #1c1c1c;
+  --ink-dim: #55524c;
+  --line: #dcd8cc;
+  --accent: #7a5a2e;
+  --paper: #ffffff;
+  --page-bg: #ece9e2;
+  --font-serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+*{ box-sizing: border-box; }
+
+body{
+  margin:0;
+  background: var(--page-bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+a{ color: var(--accent); text-decoration: none; }
+a:hover{ text-decoration: underline; }
+
+/* ---------- Toolbar (screen only) ---------- */
+.toolbar{
+  position: sticky; top:0; z-index: 10;
+  display:flex; align-items:center; justify-content: space-between;
+  padding: 14px 20px;
+  background: rgba(236,233,226,0.92);
+  backdrop-filter: blur(4px);
+  border-bottom: 1px solid var(--line);
+}
+.back-link{ color: var(--ink-dim); font-size: 14px; }
+.export-btn{
+  background: var(--ink); color:#fff; border:none; border-radius: 6px;
+  padding: 9px 18px; font-size: 14px; font-family: var(--font-sans); font-weight: 500;
+  cursor:pointer;
+}
+.export-btn:hover{ background: var(--accent); }
+
+/* ---------- Sheet (the CV itself, A4-proportioned) ---------- */
+.sheet{
+  max-width: 210mm;
+  margin: 30px auto 60px;
+  background: var(--paper);
+  padding: 20mm 18mm;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+}
+
+.cv-header{ margin-bottom: 22px; }
+.cv-header h1{
+  font-family: var(--font-serif); font-weight: 700;
+  font-size: 32px; margin: 0 0 6px; letter-spacing: .2px;
+}
+.role{ font-size: 15px; color: var(--ink-dim); margin: 0 0 10px; }
+.contact-line{ font-size: 13.5px; color: var(--ink-dim); margin:0; }
+.contact-line span{ margin: 0 8px; color: var(--line); }
+
+.cv-section{ margin-bottom: 26px; }
+.cv-section h2{
+  font-family: var(--font-serif); font-weight: 600; font-size: 15px;
+  text-transform: uppercase; letter-spacing: 1.2px; color: var(--accent);
+  border-bottom: 1px solid var(--line); padding-bottom: 6px; margin: 0 0 14px;
+}
+.cv-section h2.mt{ margin-top: 22px; }
+
+.summary{ margin:0; font-size: 15px; color: var(--ink); max-width: 68ch; }
+
+.entry{ margin-bottom: 18px; break-inside: avoid; page-break-inside: avoid; }
+.entry:last-child{ margin-bottom: 0; }
+.entry-head{ display:flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 4px; }
+.entry-head h3{ font-family: var(--font-serif); font-weight: 600; font-size: 16px; margin:0; }
+.entry-sub{ font-weight: 400; color: var(--ink-dim); font-size: 14px; }
+.entry-head time{ font-size: 13px; color: var(--ink-dim); white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+.entry ul{ margin: 6px 0 0; padding-left: 18px; }
+.entry li{ margin-bottom: 3px; font-size: 14px; }
+.entry li::marker{ color: var(--accent); }
+
+.entry-compact p{ margin: 2px 0 0; font-size: 13.5px; color: var(--ink-dim); }
+
+.grid-2{ display:grid; grid-template-columns: 1.1fr 1fr; gap: 0 36px; }
+
+.skill-groups{ margin:0; }
+.skill-groups dt{ font-weight: 600; font-size: 13px; color: var(--ink); margin-top: 10px; }
+.skill-groups dt:first-child{ margin-top: 0; }
+.skill-groups dd{ margin: 2px 0 0; font-size: 13.5px; color: var(--ink-dim); }
+
+.langs{ margin:0; font-size: 14px; }
+
+/* ---------- Print ---------- */
+@media print{
+  @page{ size: A4; margin: 14mm 14mm; }
+  html, body{ background: #fff; }
+  .no-print{ display:none !important; }
+  .sheet{
+    max-width: none; margin:0; padding:0; box-shadow: none;
+  }
+  .cv-section, .entry{ break-inside: avoid; page-break-inside: avoid; }
+  .cv-section h2{ break-after: avoid; page-break-after: avoid; }
+  a{ color: var(--ink); }
+}
+
+@media (max-width: 720px){
+  .sheet{ padding: 24px 18px; margin: 0; box-shadow:none; }
+  .toolbar{ padding: 12px 14px; }
+  .grid-2{ grid-template-columns: 1fr; }
+  .entry-head{ flex-direction: column; align-items: flex-start; gap: 2px; }
+}
