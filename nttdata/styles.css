@@ -1,0 +1,164 @@
+/* ===== Kepa Cuevas — CV interactivo · Eclipse IDE (Java 7/8 era) theme ===== */
+
+:root{
+  --chrome: #ececec;
+  --chrome-dark: #d4d0c8;
+  --chrome-border: #a0a0a0;
+  --panel-bg: #ffffff;
+  --tree-select: #c9def0;
+  --ink: #1a1a1a;
+  --ink-dim: #5a5a5a;
+  --accent: #4a86c5;
+  --kw: #7f0055;
+  --str: #2a00ff;
+  --cmt: #3f7f5f;
+  --jdoc: #3f5fbf;
+  --ann: #808000;
+  --typ: #000000;
+  --font-ui: Tahoma, 'Segoe UI', Verdana, sans-serif;
+  --font-code: 'Source Code Pro', 'Consolas', monospace;
+}
+
+*{ box-sizing: border-box; }
+html, body{ height: 100%; margin: 0; }
+
+body{
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: var(--ink);
+  background: var(--chrome-dark);
+  overflow: hidden;
+}
+
+button{ font-family: inherit; }
+
+.ide{ display:flex; flex-direction: column; height: 100vh; height: 100dvh; }
+
+/* ---------- Title bar ---------- */
+.ide-titlebar{
+  background: linear-gradient(90deg, #4a6ea9, #7fa8d9);
+  color:#fff; font-weight:bold; font-size: 12px;
+  padding: 5px 10px; flex-shrink:0;
+}
+
+/* ---------- Menu bar ---------- */
+.ide-menubar{
+  background: var(--chrome); border-bottom: 1px solid var(--chrome-border);
+  display:flex; align-items:center; gap: 16px; padding: 4px 10px;
+  flex-shrink:0; overflow-x:auto; white-space:nowrap;
+}
+.ide-menubar span{ color: var(--ink-dim); cursor:default; }
+.back-link{ margin-left:auto; color: var(--accent); font-size:12px; text-decoration:none; flex-shrink:0; }
+.back-link:hover{ text-decoration:underline; }
+
+/* ---------- Toolbar ---------- */
+.ide-toolbar{
+  background: var(--chrome); border-bottom: 1px solid var(--chrome-border);
+  display:flex; align-items:center; gap: 10px; padding: 6px 10px;
+  flex-shrink:0;
+}
+.menu-toggle{
+  display:none; background: var(--panel-bg); border: 1px solid var(--chrome-border);
+  padding: 4px 8px; cursor:pointer; font-size: 14px;
+}
+.tbtn{
+  background: var(--panel-bg); border: 1px solid var(--chrome-border);
+  padding: 3px 8px; font-size: 12px; cursor: default;
+}
+.tbtn-run{ color: #1a7a1a; font-weight:bold; }
+.tb-sep{ width:1px; height:20px; background: var(--chrome-border); }
+.chapter-tag{
+  margin-left:auto; font-size: 11px; color: var(--ink-dim);
+  font-style: italic; white-space:nowrap;
+}
+
+/* ---------- Body: explorer + editor ---------- */
+.ide-body{ flex:1; display:flex; min-height:0; }
+
+.explorer-panel{
+  width: 240px; flex-shrink:0; background: var(--panel-bg);
+  border-right: 1px solid var(--chrome-border);
+  display:flex; flex-direction:column; overflow-y:auto;
+}
+.panel-head{
+  background: var(--chrome-dark); font-weight:bold; font-size: 11px;
+  padding: 4px 8px; border-bottom: 1px solid var(--chrome-border);
+}
+.tree{ padding: 4px 0; }
+.tree-row{
+  display:flex; align-items:center; gap: 5px;
+  padding: 3px 8px 3px 14px; font-size: 12px;
+  background: transparent; border:none; width:100%; text-align:left; cursor: default;
+  color: var(--ink); white-space:nowrap;
+}
+.tree-folder{ padding-left: 22px; }
+.tree-pkg{ padding-left: 30px; }
+.tw{ width: 10px; color: var(--ink-dim); font-size: 9px; flex-shrink:0; }
+button.tree-file{ padding-left: 42px; cursor:pointer; }
+button.tree-file .fi{ flex-shrink:0; }
+button.tree-file:hover{ background: #eef4fb; }
+button.tree-file.active{ background: var(--tree-select); }
+.explorer-backdrop{ display:none; }
+
+.editor-panel{ flex:1; display:flex; flex-direction:column; min-width:0; }
+
+.tabs{ display:flex; background: var(--chrome-dark); border-bottom: 1px solid var(--chrome-border); overflow-x:auto; flex-shrink:0; }
+.tab{
+  display:flex; align-items:center; gap:6px;
+  background: var(--chrome); border: none; border-right: 1px solid var(--chrome-border);
+  padding: 6px 14px; font-size: 12px; cursor:pointer; color: var(--ink-dim); white-space:nowrap;
+}
+.tab.active{ background: var(--panel-bg); color: var(--ink); border-top: 2px solid var(--accent); }
+
+.editor{ flex:1; overflow:auto; background: var(--panel-bg); }
+.code{
+  margin:0; padding: 12px 16px; font-family: var(--font-code); font-size: 13px;
+  line-height: 1.6; color: var(--typ); white-space: pre-wrap;
+}
+.ln{ display:inline-block; width: 2.4em; color: #a8a8a8; user-select:none; }
+.kw{ color: var(--kw); font-weight: bold; }
+.str{ color: var(--str); }
+.cmt{ color: var(--cmt); font-style: italic; }
+.jdoc{ color: var(--jdoc); }
+.ann{ color: var(--ann); }
+.typ{ color: var(--typ); font-weight: 600; }
+.mth{ color: #6a3e00; }
+
+.md{ padding: 20px 26px; font-family: var(--font-ui); max-width: 68ch; }
+.md h1{ font-family: var(--font-code); font-size: 18px; color: var(--ink); margin: 0 0 14px; }
+.md p{ font-size: 13.5px; line-height:1.6; color: var(--ink); margin: 0 0 12px; }
+
+/* ---------- Bottom: console ---------- */
+.ide-bottom{
+  height: 150px; flex-shrink:0; display:flex; flex-direction:column;
+  border-top: 2px solid var(--chrome-border); background: var(--panel-bg);
+}
+.bottom-tabs{ background: var(--chrome); display:flex; gap: 2px; padding: 4px 6px 0; flex-shrink:0; }
+.bt{
+  padding: 4px 12px; font-size: 11px; background: var(--chrome-dark); color: var(--ink-dim);
+  border: 1px solid var(--chrome-border); border-bottom:none;
+}
+.bt.active{ background: var(--panel-bg); color: var(--ink); font-weight:bold; }
+.bt .ok{ color:#1a7a1a; margin-left:4px; }
+.console-out{
+  flex:1; margin:0; padding: 8px 12px; overflow-y:auto;
+  font-family: var(--font-code); font-size: 12px; color: #1a1a1a; background:#fff;
+  white-space: pre-wrap;
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 820px){
+  .menu-toggle{ display:inline-block; }
+  .ide-menubar span:not(:first-child):not(:nth-child(2)){ display:none; }
+  .explorer-panel{
+    position: fixed; inset: 0 auto 0 0; z-index: 50; width: min(280px, 82vw);
+    transform: translateX(-100%); transition: transform .2s ease;
+    box-shadow: 6px 0 18px rgba(0,0,0,0.25);
+  }
+  .explorer-panel.open{ transform: translateX(0); }
+  .explorer-backdrop{ display:block; position: fixed; inset:0; z-index:45; background: rgba(0,0,0,0.3); }
+  .explorer-backdrop[hidden]{ display:none; }
+  .chapter-tag{ display:none; }
+  .ide-bottom{ height: 110px; }
+  .code{ font-size: 12px; }
+}

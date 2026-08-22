@@ -60,9 +60,12 @@ body{
 
 .cards{
   display:grid;
-  grid-template-columns: repeat(3, minmax(0,1fr));
-  gap: 22px;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap: 18px;
   margin-bottom: 30px;
+}
+@media (max-width: 1000px){
+  .cards{ grid-template-columns: repeat(2, minmax(0,1fr)); }
 }
 
 .card{
@@ -138,6 +141,20 @@ body{
 .p-icon{ width:18px; height:18px; background:#ffcc00; border:1px solid #805b00; flex-shrink:0; }
 .p-line{ height:6px; background:#8a8a8a; flex:1; }
 .p-line.short{ flex: .5; }
+
+/* --- Eclipse (NTT Data) card theme --- */
+.card-eclipse{ border-color: #a0a0a0; background:#ececec; color:#1a1a1a; }
+.card-eclipse .card-type, .card-eclipse .card-desc{ color:#5a5a5a; }
+.card-eclipse:hover{ border-color:#4a6ea9; box-shadow: 0 14px 0 #c7d6ea; }
+.card-eclipse h2{ color:#1a1a1a; font-family: 'Consolas', monospace; font-size:18px; letter-spacing:0; }
+.card-eclipse .card-cta{ color:#4a6ea9; border-color:#4a6ea9; }
+.card-eclipse .card-index{ color:#8a8a8a; }
+.preview-eclipse{ width:100%; height:96px; background:#fff; border:1px solid #a0a0a0; display:flex; }
+.p-ide{ display:flex; width:100%; }
+.p-ide-tree{ width: 30%; background:#f4f4f4; border-right:1px solid #d4d0c8; }
+.p-ide-code{ flex:1; padding: 10px; font-family:'Consolas',monospace; font-size:12px; }
+.p-kw{ color:#7f0055; font-weight:bold; }
+.p-typ{ color:#000; }
 
 /* --- IA card theme --- */
 .card-ia{ border-color: #4a4680; background:#f6f5fb; color:#1f1e2b; }

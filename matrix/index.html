@@ -31,10 +31,8 @@
     </div>
     <nav class="pixel-nav" aria-label="Navegación principal">
       <button data-target="#whoami">whoami</button>
-      <button data-target="#experiencia">experiencia</button>
       <button data-target="#skills">skills</button>
-      <button data-target="#proyectos">proyectos_ia</button>
-      <button data-target="#formacion">formación</button>
+      <button data-target="#proyectos">proyectos</button>
       <button data-target="#contacto">contacto</button>
     </nav>
     <button id="fx-toggle" class="fx-toggle" aria-pressed="true" title="Activar/desactivar efectos de fondo">FX: ON</button>
@@ -52,13 +50,13 @@
           <h1 class="glitch" data-text="KEPA CUEVAS BARRASA">KEPA CUEVAS BARRASA</h1>
           <p class="role">&gt; SOFTWARE ENGINEER — JAVA / SPRING BOOT / MICROSERVICIOS</p>
           <p class="prompt-line"><span class="prompt">$</span> cat mission.txt</p>
-          <p class="typewriter-static">Ingeniero de software desde 2017. Construyo backend Java/Spring Boot para
-          sectores donde un fallo no es una anécdota — seguros, ecommerce, sanidad. Arquitecturas pensadas para el
-          mantenimiento, no solo para el primer despliegue. Fuera de horario sigo aprendiendo por libre lo que el
-          día a día no me exige: apps móviles, IA aplicada, producto de principio a fin.</p>
+          <p class="typewriter-static">Aquí es donde la cosa se puso seria: dejé de limitarme a usar el ordenador
+          y empecé a preguntarme cómo funcionaba por dentro. Desde entonces no he parado de construir cosas por
+          mi cuenta — apps, herramientas, sistemas completos — aprendiendo lo que me interesaba en cada momento,
+          no lo que tocaba en el curro.</p>
           <div class="hero-actions">
-            <a href="#experiencia" class="pixel-btn">&gt; VER EXPERIENCIA</a>
-            <a href="#proyectos" class="pixel-btn pixel-btn-alt">&gt; VER PROYECTOS_IA</a>
+            <a href="#proyectos" class="pixel-btn">&gt; VER PROYECTOS</a>
+            <a href="#skills" class="pixel-btn pixel-btn-alt">&gt; VER SKILLS</a>
           </div>
         </div>
       </div>
@@ -68,13 +66,11 @@
     <section id="whoami" class="section">
       <h2 class="section-title">// 01 · whoami</h2>
       <div class="pixel-card">
-        <p>Siete años moviéndome entre análisis, diseño y desarrollo de microservicios, con foco en integridad de
-        datos, mensajería asíncrona (Kafka) y despliegues que no dependen de que yo esté delante (Kubernetes,
-        CI/CD). He picado código en pólizas de seguros, catálogos de ecommerce a la escala de El Corte Inglés y
-        sistemas sanitarios — cada sector con su propia idea de qué significa "esto no puede fallar".</p>
-        <p>Perfil resolutivo: prefiero encontrar la causa raíz antes que un parche que aguante hasta el viernes.
-        Cómodo en arquitectura hexagonal y en la conversación con negocio, no solo con el código — y, en paralelo,
-        aprendiendo por mi cuenta desarrollo móvil, IA aplicada y producto de principio a fin.</p>
+        <p>Esta es la cara autodidacta: lo que he construido por mi cuenta, en mi tiempo, con las tecnologías
+        que me apetecía aprender en cada momento — no las que tocaba en el trabajo. El patrón se ha repetido
+        siempre: aprender haciendo, no leyéndome el manual entero antes de empezar.</p>
+        <p>De ahí salen los proyectos de la sección de abajo: apps móviles, un servicio en producción, herramientas
+        que uso yo mismo a diario. Ninguno nació de un ticket — todos de "¿y si pruebo a hacer esto?".</p>
         <ul class="lang-list">
           <li><span>ESPAÑOL</span><span class="tag">C2</span></li>
           <li><span>EUSKERA</span><span class="tag">C1</span></li>
@@ -83,105 +79,9 @@
       </div>
     </section>
 
-    <!-- EXPERIENCIA -->
-    <section id="experiencia" class="section">
-      <h2 class="section-title">// 02 · experiencia.log</h2>
-      <div class="timeline">
-
-        <article class="job" data-open="true">
-          <button class="job-head">
-            <span class="job-dot"></span>
-            <span class="job-meta">
-              <span class="job-company">SOPRA STERIA <em>(Leroy Merlin)</em></span>
-              <span class="job-dates">sep 2025 — Actualidad</span>
-            </span>
-            <span class="job-caret">▾</span>
-          </button>
-          <div class="job-body">
-            <p>Análisis y desarrollo de microservicios backend con Spring Boot para la familia de productos HF3P en
-            Leroy Merlin España. Consultas a PostgreSQL y MongoDB. Desarrollo de servicios de comunicación entre
-            microservicios y agregación de datos. Soporte en diseño de arquitectura, incluyendo microservicios desde
-            cero con arquitectura hexagonal. Despliegue en GKE/Kubernetes, calidad con Sonar, tests con Mockito/JUnit,
-            eventos asíncronos con Kafka Avro.</p>
-            <div class="stack">
-              <span>Java 17+</span><span>Spring Boot 4</span><span>API REST</span><span>Kafka Avro</span>
-              <span>PostgreSQL</span><span>MongoDB</span><span>GKE/Kubernetes</span><span>Artifactory</span>
-              <span>GitHub Copilot</span><span>Maven</span><span>Mockito</span><span>JUnit</span>
-              <span>Arq. Hexagonal</span><span>Scrum</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="job">
-          <button class="job-head">
-            <span class="job-dot"></span>
-            <span class="job-meta">
-              <span class="job-company">KNOWMAD MOOD <em>(El Corte Inglés)</em></span>
-              <span class="job-dates">ago 2023 — sep 2025</span>
-            </span>
-            <span class="job-caret">▾</span>
-          </button>
-          <div class="job-body">
-            <p>Análisis y desarrollo de microservicios backend con Spring Boot para el dominio de catálogo en El
-            Corte Inglés. Consultas a MongoDB. Servicios de comunicación entre microservicios y agregación de datos.
-            Soporte en diseño de arquitectura. Despliegue con Jenkins y Clarive en distintos entornos, calidad con
-            Sonar, tests con Mockito/JUnit, eventos asíncronos con Kafka.</p>
-            <div class="stack">
-              <span>Java 11-17</span><span>Spring Boot</span><span>MongoDB</span><span>Jenkins</span>
-              <span>Docker</span><span>Kubernetes</span><span>Kibana</span><span>Bitbucket</span>
-              <span>Couchbase</span><span>Clarive</span><span>Kafka</span><span>Scrum</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="job">
-          <button class="job-head">
-            <span class="job-dot"></span>
-            <span class="job-meta">
-              <span class="job-company">KNOWMAD MOOD <em>(BeeDigital)</em></span>
-              <span class="job-dates">nov 2022 — jul 2023</span>
-            </span>
-            <span class="job-caret">▾</span>
-          </button>
-          <div class="job-body">
-            <p>Análisis y desarrollo de microservicios backend con Spring Boot para posicionamiento de empresas en
-            internet. Consultas a DocumentDB y DynamoDB. Diseño de servicios de comunicación entre microservicios y
-            agregación de datos. Control de versiones con repositorios Git de Amazon. Despliegue con Jenkins, calidad
-            con Sonar, tests con Mockito/JUnit, eventos asíncronos con Kafka.</p>
-            <div class="stack">
-              <span>Java 19</span><span>Spring Boot</span><span>AWS</span><span>DynamoDB</span>
-              <span>DocumentDB</span><span>Jenkins</span><span>JWT</span><span>Kafka</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="job">
-          <button class="job-head">
-            <span class="job-dot"></span>
-            <span class="job-meta">
-              <span class="job-company">NTT DATA EUROPE</span>
-              <span class="job-dates">jul 2017 — nov 2022</span>
-            </span>
-            <span class="job-caret">▾</span>
-          </button>
-          <div class="job-body">
-            <p>Análisis, diseño y gestión de desarrollos. Mantenimiento y desarrollo de evolutivos. Desarrollo de
-            mejoras funcionales y resolución de incidencias. Integración con módulos WSSisnet. Configuración de
-            despliegues en Jenkins y DevOps. Metodología Scrum.</p>
-            <div class="stack">
-              <span>Java 7-11</span><span>API REST</span><span>Spring Boot</span><span>Maven</span>
-              <span>SVN</span><span>Git</span><span>Azure</span><span>PostgreSQL</span>
-              <span>Oracle</span><span>Jenkins</span><span>Scrum</span>
-            </div>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
     <!-- SKILLS -->
     <section id="skills" class="section">
-      <h2 class="section-title">// 03 · skills.dat</h2>
+      <h2 class="section-title">// 02 · skills.dat</h2>
       <div class="skills-grid">
         <div class="skill" data-level="5"><span class="skill-name">Java</span><div class="bar"><div class="bar-fill"></div></div></div>
         <div class="skill" data-level="5"><span class="skill-name">Spring Boot</span><div class="bar"><div class="bar-fill"></div></div></div>
@@ -201,9 +101,9 @@
       </div>
     </section>
 
-    <!-- PROYECTOS IA -->
+    <!-- PROYECTOS -->
     <section id="proyectos" class="section">
-      <h2 class="section-title">// 04 · proyectos_autodidactas --con-ia</h2>
+      <h2 class="section-title">// 03 · proyectos_autodidactas --con-ia</h2>
       <p class="section-intro">Fuera de la oficina no dejo de programar, solo cambio de problema. Proyectos reales,
       terminados y en uso — empezando por mí mismo — construidos en stacks que no toco en el trabajo, con IA
       (Claude Code) como copiloto para acelerar la curva de aprendizaje, no para sustituirla. El código es privado;
@@ -263,40 +163,9 @@
       </div>
     </section>
 
-    <!-- FORMACION -->
-    <section id="formacion" class="section">
-      <h2 class="section-title">// 05 · formación.log</h2>
-      <div class="timeline">
-        <article class="job job-static">
-          <div class="job-head job-head-static">
-            <span class="job-dot"></span>
-            <span class="job-meta">
-              <span class="job-company">Colegio Zabalburu</span>
-              <span class="job-dates">2013 — 2015</span>
-            </span>
-          </div>
-          <div class="job-body job-body-static">
-            <p>Técnico Superior, Desarrollo de Aplicaciones Web. Formación reglada.</p>
-          </div>
-        </article>
-        <article class="job job-static">
-          <div class="job-head job-head-static">
-            <span class="job-dot"></span>
-            <span class="job-meta">
-              <span class="job-company">IEFPS Elorrieta-Erreka Mari LHII</span>
-              <span class="job-dates">2010 — 2012</span>
-            </span>
-          </div>
-          <div class="job-body job-body-static">
-            <p>Técnico Superior, Desarrollo de Aplicaciones Informáticas. Formación reglada.</p>
-          </div>
-        </article>
-      </div>
-    </section>
-
     <!-- CONTACTO -->
     <section id="contacto" class="section">
-      <h2 class="section-title">// 06 · contacto.sh</h2>
+      <h2 class="section-title">// 04 · contacto.sh</h2>
       <div class="terminal-window">
         <div class="terminal-titlebar"><span></span><span></span><span></span><p>contacto</p></div>
         <div class="terminal-body">

@@ -10,8 +10,6 @@ const THREAD_LABELS = {
   'sobre-mi': 'Sobre mí',
   experiencia: 'Experiencia',
   skills: 'Skills',
-  proyectos: 'Proyectos con IA',
-  formacion: 'Formación',
   contacto: 'Contacto',
 };
 
@@ -113,10 +111,23 @@ const KEYWORDS = {
   'sobre-mi': ['quien', 'quién', 'eres', 'sobre ti', 'presentate', 'preséntate'],
   experiencia: ['experiencia', 'trabajo', 'empresa', 'curro', 'historial'],
   skills: ['skill', 'tecnolog', 'stack', 'dominas', 'sabes'],
-  proyectos: ['proyecto', 'app', 'ia', 'personal', 'autodidact'],
-  formacion: ['estudi', 'formaci', 'colegio', 'instituto'],
   contacto: ['contact', 'email', 'correo', 'linkedin', 'github', 'hablar'],
 };
+
+// Content that moved to other chapters — answer with a pointer instead of
+// pretending it lives here.
+const REDIRECTS = {
+  proyectos: { words: ['proyecto', 'app', 'personal', 'autodidact'], to: 'la edición Matrix' },
+  formacion: { words: ['estudi', 'formaci', 'colegio', 'instituto'], to: 'la edición Windows 98' },
+};
+
+function matchRedirect(text){
+  const t = text.toLowerCase();
+  for (const r of Object.values(REDIRECTS)){
+    if (r.words.some(w => t.includes(w))) return r.to;
+  }
+  return null;
+}
 
 function matchThread(text){
   const t = text.toLowerCase();
@@ -155,7 +166,13 @@ composer.addEventListener('submit', (e) => {
 
   const lower = q.toLowerCase();
   if (lower.includes('ayuda') || lower.includes('help')){
-    appendCustomExchange(q, '<p>Puedo hablarte de: <strong>quién soy</strong>, <strong>experiencia</strong>, <strong>skills</strong>, <strong>proyectos</strong>, <strong>formación</strong> o <strong>contacto</strong>. También puedes usar el menú de la izquierda.</p>');
+    appendCustomExchange(q, '<p>Puedo hablarte de: <strong>quién soy</strong>, <strong>experiencia</strong>, <strong>skills</strong> o <strong>contacto</strong>. Para proyectos personales o formación, echa un vistazo a las otras ediciones — también puedes usar el menú de la izquierda.</p>');
+    return;
+  }
+
+  const redirect = matchRedirect(q);
+  if (redirect){
+    appendCustomExchange(q, `<p>Eso lo cuento en ${redirect} — este capítulo se centra en la experiencia laboral reciente. Vuelve al selector y pruébala.</p>`);
     return;
   }
 
